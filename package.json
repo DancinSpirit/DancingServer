@@ -1,0 +1,7 @@
+{
+    "name": "@dancingspirit/dancingscript",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": "dancinspirit/dancingserver",
+    "main": "index.js"
+}
