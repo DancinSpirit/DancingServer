@@ -3,12 +3,12 @@ const DancingServer = {
     create: function(app, db){
         /* Home Page Loading */
         app.get("/", function(req,res){
-            res.render('base',{states: ["start"],data: [{}]});
+            res.render('base',{states: ["start"], models: [{}]});
         })
         /* Page Loading */
         app.get("/*", function(req, res){
             let states = [];
-            let data = [];
+            let models = [];
             let model = {};
             for(let x=1; x<req.url.split("/").length; x++){
                 if(req.url.split("/")[x].includes("%7C")){
@@ -17,10 +17,10 @@ const DancingServer = {
                 }else{
                     model = {};
                 }
-                data.push(model)
+                models.push(model);
                 states.push(req.url.split("/")[x].split("%7C")[0]);
             }
-            res.render('base',{states: states, data: data});
+            res.render('base',{states: states, models: models});
         })
         /* Database Loading */
         app.get("/data/:model/:id", async function(req,res){
